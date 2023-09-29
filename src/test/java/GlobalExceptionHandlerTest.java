@@ -3,7 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import test.exception.AgeRestrictionException;
+import test.exception.RegistrationException;
 import test.exception.DataProcessingException;
 import test.exception.GlobalExceptionHandler;
 
@@ -28,7 +28,7 @@ public class GlobalExceptionHandlerTest {
 
     @Test
     void handleAgeRestrictionException() {
-        AgeRestrictionException ex = new AgeRestrictionException("Age Restriction Error");
+        RegistrationException ex = new RegistrationException("Age Restriction Error");
 
         ResponseEntity<Object> responseEntity = globalExceptionHandler.handleAgeRestrictionException(ex);
 

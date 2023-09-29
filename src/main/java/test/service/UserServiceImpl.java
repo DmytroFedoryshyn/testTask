@@ -10,7 +10,7 @@ import test.dto.UserResponseDto;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
-import test.exception.AgeRestrictionException;
+import test.exception.RegistrationException;
 import test.mapper.UserMapper;
 import org.springframework.stereotype.Service;
 import test.repository.UserRepository;
@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
         Period age = Period.between(birthDate, currentDate);
 
         if (age.getYears() < minAge) {
-            throw new AgeRestrictionException("User must be at least 18 years old.");
+            throw new RegistrationException("User must be at least 18 years old.");
         }
         return mapper.toDto(repository.save(mapper.toEntity(user)));
     }

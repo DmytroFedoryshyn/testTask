@@ -10,7 +10,7 @@ import test.dto.DateRangeDto;
 import test.dto.PartialUserRequestDto;
 import test.dto.UserRequestDto;
 import test.dto.UserResponseDto;
-import test.exception.AgeRestrictionException;
+import test.exception.RegistrationException;
 import test.repository.UserRepository;
 import test.service.UserService;
 
@@ -43,7 +43,7 @@ public class UserServiceTest {
         UserRequestDto dto = new UserRequestDto();
         dto.setBirthDate(LocalDate.now().plusDays(1));
 
-        assertThrows(AgeRestrictionException.class, () -> userService.registerUser(dto));
+        assertThrows(RegistrationException.class, () -> userService.registerUser(dto));
     }
 
     @Test

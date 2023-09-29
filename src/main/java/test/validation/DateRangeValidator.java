@@ -15,6 +15,6 @@ public class DateRangeValidator implements ConstraintValidator<ValidDateRange, D
         LocalDate from = dateRangeDto.getFrom();
         LocalDate to = dateRangeDto.getTo();
 
-        return !from.isAfter(to);
+        return from.isBefore(to);
     }
 }

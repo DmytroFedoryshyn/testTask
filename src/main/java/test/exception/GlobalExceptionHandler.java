@@ -47,9 +47,9 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(AgeRestrictionException.class)
+    @ExceptionHandler(RegistrationException.class)
     public ResponseEntity<Object> handleAgeRestrictionException(
-        AgeRestrictionException ex) {
+        RegistrationException ex) {
         Map<String, Object> body = new LinkedHashMap<>();
         body.put("timestamp", LocalDateTime.now());
         body.put("status", HttpStatus.BAD_REQUEST);

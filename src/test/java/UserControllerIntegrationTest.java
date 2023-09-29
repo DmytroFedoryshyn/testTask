@@ -142,7 +142,7 @@ public class UserControllerIntegrationTest {
         dateRangeDto.setTo(toDate);
         String searchDtoJson = objectMapper.writeValueAsString(dateRangeDto);
 
-        MvcResult searchResult = mockMvc.perform(MockMvcRequestBuilders.get("/users/searchByBirthDate")
+        MvcResult searchResult = mockMvc.perform(MockMvcRequestBuilders.post("/users/search")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(searchDtoJson))
             .andExpect(MockMvcResultMatchers.status().isOk())
